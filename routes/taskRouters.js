@@ -78,7 +78,7 @@ router.get("/user-tasks", async (req, res) => {
       return res.status(404).json({ msg: "No maintenance tasks found" });
     }
 
-    
+    console.log("Fetched tasks:", tasks);
     res.json(tasks);
   } catch (err) {
     console.error("Error fetching tasks:", err);
@@ -184,7 +184,7 @@ router.patch("/update-maintenance", async (req, res) => {
       });
 
       await newTask.save();
-      console.log("✅ New Task Created:");
+      console.log("✅ New Task Created:", newTask);
     }
 
     res.json(task);
